@@ -140,9 +140,12 @@ public class EjbPlugin extends AbstractSpringConfigurablePlugin {
 	@Override
 	protected String[] getDefaultConfigLocations() {
 		return new String[] {
+        			"classpath*:"
+        				+ getClass().getPackage().getName().replace('.', '/')
+        				+ "/applicationContext.xml",
 				"classpath*:"
-						+ getClass().getPackage().getName().replace('.', '/')
-						+ "/applicationContext.xml",
+					+ EjbPlugin.class.getPackage().getName().replace('.', '/')
+					+ "/custom/applicationContext.xml",
 				"classpath*:"
 						+ getClass().getPackage().getName().replace('.', '/')
 						+ "/custom/applicationContext.xml" };
